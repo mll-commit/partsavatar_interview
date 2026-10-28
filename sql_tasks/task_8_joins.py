@@ -7,7 +7,11 @@ def get_customer_spend():
     # Task: Join Customers, Orders, and Order_Items to calculate 
     # total spend (price * quantity) per Customer Name.
     query = """
-    -- WRITE YOUR SQL HERE
+    SELECT name, SUM(price*quantity) AS total_spend
+    FROM Customers
+    LEFT JOIN Orders USING(customer_id)
+    LEFT JOIN Order_Items USING(order_id)
+    GROUP BY 1
     """
     
     cursor.execute(query)
