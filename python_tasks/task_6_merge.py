@@ -3,8 +3,7 @@
 # If a key exists in both, the value from 'updates' should overwrite 'current'.
 
 def update_inventory(current, updates):
-    # TODO: Implement merge logic
-    pass
+    return current | updates
 
 # Test Case
 current_inv = {'Brakes': 10, 'Oil': 5}
